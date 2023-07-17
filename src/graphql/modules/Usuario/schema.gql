@@ -1,0 +1,24 @@
+type Usuario{
+        id: Int,
+        nome: String,
+        email: String,
+        telefone: String,
+        perfil: Perfil,
+}
+
+type usuarioInput{
+        nome: String,
+        email: String,
+        telefone: String
+}
+
+type Query{
+
+    usuarios(id: Int): Usuario
+    usuario: [Usuario]
+}
+
+type Mutation{
+    criarUsuario(data: usuarioInput): Usuario!
+    atualizarUsuario(data: usuarioInput, id:int):Usuario!
+}
