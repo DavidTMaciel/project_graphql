@@ -56,6 +56,21 @@ module.exports={
             }
             db.usuarios.splice(indice, 1, novoUsuario);
             return usuario;
+        },
+        deletarUsuario(_, {filtro: {id, email}}){
+            if(id){
+                const usuarioEncontrado = db.usuarios.find(u=>u.id === id);
+                db.usuarios = db.usuarios.filter(u=> u.id === id);
+    
+                return !!usuarioEncontrado;
+           }else{
+            const usuarioEncontrado = db.usuarios.find(u=>u.email === email);
+            b.usuarios = db.usuarios.filter(u=> u.email === email);
+    
+            return !!usuarioEncontrado;
+           }
+            
+
         }
     }
 }
