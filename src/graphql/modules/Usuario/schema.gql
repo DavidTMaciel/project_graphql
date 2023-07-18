@@ -6,10 +6,15 @@ type Usuario{
         perfil: Perfil,
 }
 
-type usuarioInput{
+input usuarioInput{
         nome: String,
         email: String,
         telefone: String
+}
+
+input FiltroInput{
+    id:Int,
+    email: String,
 }
 
 type Query{
@@ -21,4 +26,5 @@ type Query{
 type Mutation{
     criarUsuario(data: usuarioInput): Usuario!
     atualizarUsuario(data: usuarioInput, id:int):Usuario!
+    deletarUsuario(filtro: FiltroInput!) : Boolean;
 }
